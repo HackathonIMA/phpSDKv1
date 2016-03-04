@@ -2,7 +2,7 @@
 
 namespace ApiImaV1;
 
-class AtendimentosApi {
+class AtendimentoApi {
 
   function __construct($apiClient = null) {
     if (null === $apiClient) {
@@ -35,11 +35,10 @@ class AtendimentosApi {
 
   
   /**
-   * 156Get
+   * atendimentoGet
    *
    * Dados sobre atendimentos
    *
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
@@ -47,33 +46,30 @@ class AtendimentosApi {
    * @param int $ano_solicitacao Filtra os resultados por ano em que a solicitaÃ§Ã£o foi feita. (required)
    * @param string $codigo_cep Filtra os resultados pelo CEP em que a solicitacao estÃ¡ cadastrada. (required)
    * @param string $descricao_status Filtra os resultados por status, passado o tipo de status referente. (Exemplo &gt; &#39;EXECUTADO&#39;) (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return array[SolicitacaoResponse]
    */
-   public function 156Get($access_token, $client_id, $offset, $limit, $nome_regiao, $ano_solicitacao, $codigo_cep, $descricao_status) {
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling 156Get');
-      }
+   public function atendimentoGet($client_id, $offset, $limit, $nome_regiao, $ano_solicitacao, $codigo_cep, $descricao_status, $fields, $filters) {
       
       // verify the required parameter 'client_id' is set
       if ($client_id === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $client_id when calling 156Get');
+        throw new \InvalidArgumentException('Missing the required parameter $client_id when calling atendimentoGet');
       }
       
       // verify the required parameter 'offset' is set
       if ($offset === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $offset when calling 156Get');
+        throw new \InvalidArgumentException('Missing the required parameter $offset when calling atendimentoGet');
       }
       
       // verify the required parameter 'limit' is set
       if ($limit === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $limit when calling 156Get');
+        throw new \InvalidArgumentException('Missing the required parameter $limit when calling atendimentoGet');
       }
       
 
       // parse inputs
-      $resourcePath = "/156";
+      $resourcePath = "/atendimento";
       $resourcePath = str_replace("{format}", "json", $resourcePath);
       $method = "GET";
       $httpBody = '';
@@ -104,11 +100,14 @@ class AtendimentosApi {
       }// query params
       if($descricao_status !== null) {
         $queryParams['descricaoStatus'] = $this->apiClient->toQueryValue($descricao_status);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -141,35 +140,31 @@ class AtendimentosApi {
   }
   
   /**
-   * 156IdGet
+   * atendimentoIdGet
    *
    * Dado de um atendimento especifico.
    *
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $id Identificador da solicitaÃ§Ã£o (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return SolicitacaoResponse
    */
-   public function 156IdGet($access_token, $client_id, $id) {
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling 156IdGet');
-      }
+   public function atendimentoIdGet($client_id, $id, $fields, $filters) {
       
       // verify the required parameter 'client_id' is set
       if ($client_id === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $client_id when calling 156IdGet');
+        throw new \InvalidArgumentException('Missing the required parameter $client_id when calling atendimentoIdGet');
       }
       
       // verify the required parameter 'id' is set
       if ($id === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $id when calling 156IdGet');
+        throw new \InvalidArgumentException('Missing the required parameter $id when calling atendimentoIdGet');
       }
       
 
       // parse inputs
-      $resourcePath = "/156/{id}";
+      $resourcePath = "/atendimento/{id}";
       $resourcePath = str_replace("{format}", "json", $resourcePath);
       $method = "GET";
       $httpBody = '';
@@ -182,11 +177,14 @@ class AtendimentosApi {
       }
       $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
 
-      
+      // query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
+      }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }

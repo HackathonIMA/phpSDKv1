@@ -7,18 +7,21 @@ use \ArrayAccess;
 
 class FonteDetalhadaResponse implements ArrayAccess {
   static $swaggerTypes = array(
+      'links' => 'array[LinksModel]',
       'id' => 'string',
       'descricao' => 'string',
       'codigo_grupo' => 'string'
   );
 
   static $attributeMap = array(
+      'links' => 'links',
       'id' => 'ID',
       'descricao' => 'descricao',
       'codigo_grupo' => 'codigoGrupo'
   );
 
   
+  public $links; /* array[LinksModel] */
   /**
   * Identificador do registro.
   */
@@ -33,6 +36,7 @@ class FonteDetalhadaResponse implements ArrayAccess {
   public $codigo_grupo; /* string */
 
   public function __construct(array $data = null) {
+    $this->links = $data["links"];
     $this->id = $data["id"];
     $this->descricao = $data["descricao"];
     $this->codigo_grupo = $data["codigo_grupo"];

@@ -7,6 +7,7 @@ use \ArrayAccess;
 
 class AcoesResponse implements ArrayAccess {
   static $swaggerTypes = array(
+      'links' => 'array[LinksModel]',
       'id' => 'string',
       'nome' => 'string',
       'descricao' => 'int',
@@ -14,6 +15,7 @@ class AcoesResponse implements ArrayAccess {
   );
 
   static $attributeMap = array(
+      'links' => 'links',
       'id' => 'ID',
       'nome' => 'nome',
       'descricao' => 'descricao',
@@ -21,6 +23,7 @@ class AcoesResponse implements ArrayAccess {
   );
 
   
+  public $links; /* array[LinksModel] */
   /**
   * Identificador do registro.
   */
@@ -39,6 +42,7 @@ class AcoesResponse implements ArrayAccess {
   public $numero; /* string */
 
   public function __construct(array $data = null) {
+    $this->links = $data["links"];
     $this->id = $data["id"];
     $this->nome = $data["nome"];
     $this->descricao = $data["descricao"];

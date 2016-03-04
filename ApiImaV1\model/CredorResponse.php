@@ -7,18 +7,21 @@ use \ArrayAccess;
 
 class CredorResponse implements ArrayAccess {
   static $swaggerTypes = array(
+      'links' => 'array[LinksModel]',
       'id' => 'string',
       'descricao' => 'string',
       'municipio_descricao' => 'string'
   );
 
   static $attributeMap = array(
+      'links' => 'links',
       'id' => 'ID',
       'descricao' => 'descricao',
       'municipio_descricao' => 'municipioDescricao'
   );
 
   
+  public $links; /* array[LinksModel] */
   /**
   * Identificador do registro.
   */
@@ -33,6 +36,7 @@ class CredorResponse implements ArrayAccess {
   public $municipio_descricao; /* string */
 
   public function __construct(array $data = null) {
+    $this->links = $data["links"];
     $this->id = $data["id"];
     $this->descricao = $data["descricao"];
     $this->municipio_descricao = $data["municipio_descricao"];

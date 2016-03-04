@@ -39,18 +39,14 @@ class TransparenciaApi {
    *
    * Consulta das aÃ§Ãµes da preifeitura.
    *
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return array[AcoesResponse]
    */
-   public function queryfiltroAcao($access_token, $client_id, $offset, $limit) {
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling queryfiltroAcao');
-      }
+   public function queryfiltroAcao($client_id, $offset, $limit, $fields, $filters) {
       
       // verify the required parameter 'client_id' is set
       if ($client_id === null) {
@@ -88,11 +84,14 @@ class TransparenciaApi {
       }// query params
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -130,22 +129,18 @@ class TransparenciaApi {
    * Consulta da aÃ§Ã£o da preifeitura.
    *
    * @param string $id Identificador do registro. (required)
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return AcoesResponse
    */
-   public function queryfiltroAcao2($id, $access_token, $client_id, $offset, $limit) {
+   public function queryfiltroAcao2($id, $client_id, $offset, $limit, $fields, $filters) {
       
       // verify the required parameter 'id' is set
       if ($id === null) {
         throw new \InvalidArgumentException('Missing the required parameter $id when calling queryfiltroAcao2');
-      }
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling queryfiltroAcao2');
       }
       
       // verify the required parameter 'client_id' is set
@@ -184,11 +179,14 @@ class TransparenciaApi {
       }// query params
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -229,18 +227,14 @@ class TransparenciaApi {
    *
    * Consulta de credores.
    *
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return array[CredorResponse]
    */
-   public function ptrLkpCredor($access_token, $client_id, $offset, $limit) {
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpCredor');
-      }
+   public function ptrLkpCredor($client_id, $offset, $limit, $fields, $filters) {
       
       // verify the required parameter 'client_id' is set
       if ($client_id === null) {
@@ -278,11 +272,14 @@ class TransparenciaApi {
       }// query params
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -320,22 +317,18 @@ class TransparenciaApi {
    * Consulta de credor.
    *
    * @param string $id Identificador do registro. (required)
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return CredorResponse
    */
-   public function ptrLkpCredor2($id, $access_token, $client_id, $offset, $limit) {
+   public function ptrLkpCredor2($id, $client_id, $offset, $limit, $fields, $filters) {
       
       // verify the required parameter 'id' is set
       if ($id === null) {
         throw new \InvalidArgumentException('Missing the required parameter $id when calling ptrLkpCredor2');
-      }
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpCredor2');
       }
       
       // verify the required parameter 'client_id' is set
@@ -374,11 +367,14 @@ class TransparenciaApi {
       }// query params
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -419,10 +415,11 @@ class TransparenciaApi {
    *
    * Consulta de despesas da prefeitura.
    *
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @param string $ano_exercicio Ano de exercÃ­cio (required)
    * @param string $acao AÃ§Ã£o, lista disponÃ­vel em GET /transparencia/acoes (required)
    * @param string $mes MÃªs desejado (required)
@@ -436,12 +433,7 @@ class TransparenciaApi {
    * @param string $expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula (required)
    * @return array[DespesasResponse]
    */
-   public function ptrFtDespesa($access_token, $client_id, $offset, $limit, $ano_exercicio, $acao, $mes, $orgao, $funcao, $subfuncao, $programa, $origem_fonte, $fonte, $natureza_despesa, $expand) {
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrFtDespesa');
-      }
+   public function ptrFtDespesa($client_id, $offset, $limit, $fields, $filters, $ano_exercicio, $acao, $mes, $orgao, $funcao, $subfuncao, $programa, $origem_fonte, $fonte, $natureza_despesa, $expand) {
       
       // verify the required parameter 'client_id' is set
       if ($client_id === null) {
@@ -480,6 +472,12 @@ class TransparenciaApi {
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
       }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
+      }// query params
       if($ano_exercicio !== null) {
         $queryParams['anoExercicio'] = $this->apiClient->toQueryValue($ano_exercicio);
       }// query params
@@ -514,9 +512,6 @@ class TransparenciaApi {
         $queryParams['expand'] = $this->apiClient->toQueryValue($expand);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -554,21 +549,17 @@ class TransparenciaApi {
    * Consulta de uma despesa da prefeitura.
    *
    * @param string $id Identificador do registro. (required)
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return DespesasResponse
    */
-   public function ptrFtDespesa2($id, $access_token, $client_id, $expand) {
+   public function ptrFtDespesa2($id, $client_id, $expand, $fields, $filters) {
       
       // verify the required parameter 'id' is set
       if ($id === null) {
         throw new \InvalidArgumentException('Missing the required parameter $id when calling ptrFtDespesa2');
-      }
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrFtDespesa2');
       }
       
       // verify the required parameter 'client_id' is set
@@ -594,11 +585,14 @@ class TransparenciaApi {
       // query params
       if($expand !== null) {
         $queryParams['expand'] = $this->apiClient->toQueryValue($expand);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -639,18 +633,14 @@ class TransparenciaApi {
    *
    * Consulta das despesas dos elementos da preifeitura.
    *
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return array[ElementoDespesaResponse]
    */
-   public function ptrLkpElementoDespesa($access_token, $client_id, $offset, $limit) {
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpElementoDespesa');
-      }
+   public function ptrLkpElementoDespesa($client_id, $offset, $limit, $fields, $filters) {
       
       // verify the required parameter 'client_id' is set
       if ($client_id === null) {
@@ -688,11 +678,14 @@ class TransparenciaApi {
       }// query params
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -730,22 +723,18 @@ class TransparenciaApi {
    * Consulta da despesa do elemento da preifeitura.
    *
    * @param string $id Identificador do registro. (required)
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return ElementoDespesaResponse
    */
-   public function ptrLkpElementoDespesa2($id, $access_token, $client_id, $offset, $limit) {
+   public function ptrLkpElementoDespesa2($id, $client_id, $offset, $limit, $fields, $filters) {
       
       // verify the required parameter 'id' is set
       if ($id === null) {
         throw new \InvalidArgumentException('Missing the required parameter $id when calling ptrLkpElementoDespesa2');
-      }
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpElementoDespesa2');
       }
       
       // verify the required parameter 'client_id' is set
@@ -784,11 +773,14 @@ class TransparenciaApi {
       }// query params
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -829,18 +821,14 @@ class TransparenciaApi {
    *
    * Consulta das despesas dos elementos da preifeitura.
    *
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return array[EmpenhoResponse]
    */
-   public function ptrLkpNe($access_token, $client_id, $offset, $limit) {
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpNe');
-      }
+   public function ptrLkpNe($client_id, $offset, $limit, $fields, $filters) {
       
       // verify the required parameter 'client_id' is set
       if ($client_id === null) {
@@ -878,11 +866,14 @@ class TransparenciaApi {
       }// query params
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -920,22 +911,18 @@ class TransparenciaApi {
    * Consulta da despesa do elemento da preifeitura.
    *
    * @param string $id Identificador do registro. (required)
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return EmpenhoResponse
    */
-   public function ptrLkpNe2($id, $access_token, $client_id, $offset, $limit) {
+   public function ptrLkpNe2($id, $client_id, $offset, $limit, $fields, $filters) {
       
       // verify the required parameter 'id' is set
       if ($id === null) {
         throw new \InvalidArgumentException('Missing the required parameter $id when calling ptrLkpNe2');
-      }
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpNe2');
       }
       
       // verify the required parameter 'client_id' is set
@@ -974,11 +961,14 @@ class TransparenciaApi {
       }// query params
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -1019,19 +1009,15 @@ class TransparenciaApi {
    *
    * Consulta de contas das fontes da prefeitura.
    *
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
    * @param string $expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return array[FontesResponse]
    */
-   public function ptrLkpFonteDetalhada($access_token, $client_id, $offset, $limit, $expand) {
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpFonteDetalhada');
-      }
+   public function ptrLkpFonteDetalhada($client_id, $offset, $limit, $expand, $fields, $filters) {
       
       // verify the required parameter 'client_id' is set
       if ($client_id === null) {
@@ -1072,11 +1058,14 @@ class TransparenciaApi {
       }// query params
       if($expand !== null) {
         $queryParams['expand'] = $this->apiClient->toQueryValue($expand);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -1114,23 +1103,19 @@ class TransparenciaApi {
    * Consulta de conta da fonte da prefeitura.
    *
    * @param string $id Identificador do registro. (required)
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
    * @param string $expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return FontesResponse
    */
-   public function ptrLkpFonteDetalhada2($id, $access_token, $client_id, $offset, $limit, $expand) {
+   public function ptrLkpFonteDetalhada2($id, $client_id, $offset, $limit, $expand, $fields, $filters) {
       
       // verify the required parameter 'id' is set
       if ($id === null) {
         throw new \InvalidArgumentException('Missing the required parameter $id when calling ptrLkpFonteDetalhada2');
-      }
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpFonteDetalhada2');
       }
       
       // verify the required parameter 'client_id' is set
@@ -1172,11 +1157,14 @@ class TransparenciaApi {
       }// query params
       if($expand !== null) {
         $queryParams['expand'] = $this->apiClient->toQueryValue($expand);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -1217,18 +1205,14 @@ class TransparenciaApi {
    *
    * Consulta das receitas das fontes detalhadas da prefeitura.
    *
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return array[FonteDetalhadaResponse]
    */
-   public function ptrLkpFonte($access_token, $client_id, $offset, $limit) {
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpFonte');
-      }
+   public function ptrLkpFonte($client_id, $offset, $limit, $fields, $filters) {
       
       // verify the required parameter 'client_id' is set
       if ($client_id === null) {
@@ -1266,11 +1250,14 @@ class TransparenciaApi {
       }// query params
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -1308,22 +1295,18 @@ class TransparenciaApi {
    * Consulta da receita da fonte detalhada da prefeitura.
    *
    * @param string $id Identificador do registro. (required)
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return FonteDetalhadaResponse
    */
-   public function ptrLkpFonte2($id, $access_token, $client_id, $offset, $limit) {
+   public function ptrLkpFonte2($id, $client_id, $offset, $limit, $fields, $filters) {
       
       // verify the required parameter 'id' is set
       if ($id === null) {
         throw new \InvalidArgumentException('Missing the required parameter $id when calling ptrLkpFonte2');
-      }
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpFonte2');
       }
       
       // verify the required parameter 'client_id' is set
@@ -1362,11 +1345,14 @@ class TransparenciaApi {
       }// query params
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -1407,18 +1393,14 @@ class TransparenciaApi {
    *
    * Consulta das funÃ§Ãµes da preifeitura.
    *
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return array[FuncoesResponse]
    */
-   public function ptrLkpFuncao($access_token, $client_id, $offset, $limit) {
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpFuncao');
-      }
+   public function ptrLkpFuncao($client_id, $offset, $limit, $fields, $filters) {
       
       // verify the required parameter 'client_id' is set
       if ($client_id === null) {
@@ -1456,11 +1438,14 @@ class TransparenciaApi {
       }// query params
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -1498,22 +1483,18 @@ class TransparenciaApi {
    * Consulta da funÃ§Ã£o da preifeitura.
    *
    * @param string $id Identificador do registro. (required)
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return FuncoesResponse
    */
-   public function ptrLkpFuncao2($id, $access_token, $client_id, $offset, $limit) {
+   public function ptrLkpFuncao2($id, $client_id, $offset, $limit, $fields, $filters) {
       
       // verify the required parameter 'id' is set
       if ($id === null) {
         throw new \InvalidArgumentException('Missing the required parameter $id when calling ptrLkpFuncao2');
-      }
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpFuncao2');
       }
       
       // verify the required parameter 'client_id' is set
@@ -1552,11 +1533,14 @@ class TransparenciaApi {
       }// query params
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -1597,19 +1581,15 @@ class TransparenciaApi {
    *
    * Consulta de contas das naturezas das receitas da prefeitura.
    *
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
    * @param string $expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return array[NaturezasResponse]
    */
-   public function ptrLkpSubalineaReceita($access_token, $client_id, $offset, $limit, $expand) {
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpSubalineaReceita');
-      }
+   public function ptrLkpSubalineaReceita($client_id, $offset, $limit, $expand, $fields, $filters) {
       
       // verify the required parameter 'client_id' is set
       if ($client_id === null) {
@@ -1650,11 +1630,14 @@ class TransparenciaApi {
       }// query params
       if($expand !== null) {
         $queryParams['expand'] = $this->apiClient->toQueryValue($expand);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -1692,23 +1675,19 @@ class TransparenciaApi {
    * Consulta de conta da natureza da receita da prefeitura.
    *
    * @param string $id Identificador do registro. (required)
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
    * @param string $expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return NaturezasResponse
    */
-   public function ptrLkpSubalineaReceita2($id, $access_token, $client_id, $offset, $limit, $expand) {
+   public function ptrLkpSubalineaReceita2($id, $client_id, $offset, $limit, $expand, $fields, $filters) {
       
       // verify the required parameter 'id' is set
       if ($id === null) {
         throw new \InvalidArgumentException('Missing the required parameter $id when calling ptrLkpSubalineaReceita2');
-      }
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpSubalineaReceita2');
       }
       
       // verify the required parameter 'client_id' is set
@@ -1750,11 +1729,14 @@ class TransparenciaApi {
       }// query params
       if($expand !== null) {
         $queryParams['expand'] = $this->apiClient->toQueryValue($expand);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -1795,18 +1777,14 @@ class TransparenciaApi {
    *
    * Consulta dos programas da preifeitura.
    *
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return array[ProgramaResponse]
    */
-   public function ptrLkpPrograma($access_token, $client_id, $offset, $limit) {
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpPrograma');
-      }
+   public function ptrLkpPrograma($client_id, $offset, $limit, $fields, $filters) {
       
       // verify the required parameter 'client_id' is set
       if ($client_id === null) {
@@ -1844,11 +1822,14 @@ class TransparenciaApi {
       }// query params
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -1886,22 +1867,18 @@ class TransparenciaApi {
    * Consulta do programa da preifeitura.
    *
    * @param string $id Identificador do registro. (required)
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return ProgramaResponse
    */
-   public function ptrLkpPrograma2($id, $access_token, $client_id, $offset, $limit) {
+   public function ptrLkpPrograma2($id, $client_id, $offset, $limit, $fields, $filters) {
       
       // verify the required parameter 'id' is set
       if ($id === null) {
         throw new \InvalidArgumentException('Missing the required parameter $id when calling ptrLkpPrograma2');
-      }
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpPrograma2');
       }
       
       // verify the required parameter 'client_id' is set
@@ -1940,11 +1917,14 @@ class TransparenciaApi {
       }// query params
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -1985,19 +1965,15 @@ class TransparenciaApi {
    *
    * Consulta dos projetos e atividades da preifeitura.
    *
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
    * @param string $expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return array[ProjetoAtividadeResponse]
    */
-   public function ptrLkpProjetoAtividade($access_token, $client_id, $offset, $limit, $expand) {
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpProjetoAtividade');
-      }
+   public function ptrLkpProjetoAtividade($client_id, $offset, $limit, $expand, $fields, $filters) {
       
       // verify the required parameter 'client_id' is set
       if ($client_id === null) {
@@ -2038,11 +2014,14 @@ class TransparenciaApi {
       }// query params
       if($expand !== null) {
         $queryParams['expand'] = $this->apiClient->toQueryValue($expand);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -2080,23 +2059,19 @@ class TransparenciaApi {
    * Consulta do projeto e atividade da preifeitura.
    *
    * @param string $id Identificador do registro. (required)
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
    * @param string $expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return ProjetoAtividadeResponse
    */
-   public function ptrLkpProjetoAtividade2($id, $access_token, $client_id, $offset, $limit, $expand) {
+   public function ptrLkpProjetoAtividade2($id, $client_id, $offset, $limit, $expand, $fields, $filters) {
       
       // verify the required parameter 'id' is set
       if ($id === null) {
         throw new \InvalidArgumentException('Missing the required parameter $id when calling ptrLkpProjetoAtividade2');
-      }
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpProjetoAtividade2');
       }
       
       // verify the required parameter 'client_id' is set
@@ -2138,11 +2113,14 @@ class TransparenciaApi {
       }// query params
       if($expand !== null) {
         $queryParams['expand'] = $this->apiClient->toQueryValue($expand);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -2183,22 +2161,18 @@ class TransparenciaApi {
    *
    * Consulta das receitas da prefeitura.
    *
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @param string $ano Ano de exercÃ­cio (required)
    * @param string $mes MÃªs desejado (required)
    * @param string $unidade Unidades, lista disponÃ­vel em GET /transparencia/unidades (required)
    * @param string $natureza Natureza das receitas, lista disponÃ­vel em GET /transparencia/naturezas (required)
    * @return array[ReceitaResponse]
    */
-   public function ptrFtReceita($access_token, $client_id, $offset, $limit, $ano, $mes, $unidade, $natureza) {
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrFtReceita');
-      }
+   public function ptrFtReceita($client_id, $offset, $limit, $fields, $filters, $ano, $mes, $unidade, $natureza) {
       
       // verify the required parameter 'client_id' is set
       if ($client_id === null) {
@@ -2237,6 +2211,12 @@ class TransparenciaApi {
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
       }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
+      }// query params
       if($ano !== null) {
         $queryParams['ano'] = $this->apiClient->toQueryValue($ano);
       }// query params
@@ -2250,9 +2230,6 @@ class TransparenciaApi {
         $queryParams['natureza'] = $this->apiClient->toQueryValue($natureza);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -2290,26 +2267,22 @@ class TransparenciaApi {
    * Consulta da receita da prefeitura.
    *
    * @param string $id Identificador do registro. (required)
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @param string $ano Ano de exercÃ­cio, lista disponÃ­vel em GET /transparencia/anosExercicioReceita (required)
    * @param string $mes MÃªs desejado (required)
    * @param string $unidade Unidades, lista disponÃ­vel em GET /transparencia/unidades (required)
    * @param string $natureza Natureza das receitas, lista disponÃ­vel em GET /transparencia/naturezas (required)
    * @return ReceitaResponse
    */
-   public function ptrFtReceita2($id, $access_token, $client_id, $offset, $limit, $ano, $mes, $unidade, $natureza) {
+   public function ptrFtReceita2($id, $client_id, $offset, $limit, $fields, $filters, $ano, $mes, $unidade, $natureza) {
       
       // verify the required parameter 'id' is set
       if ($id === null) {
         throw new \InvalidArgumentException('Missing the required parameter $id when calling ptrFtReceita2');
-      }
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrFtReceita2');
       }
       
       // verify the required parameter 'client_id' is set
@@ -2349,6 +2322,12 @@ class TransparenciaApi {
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
       }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
+      }// query params
       if($ano !== null) {
         $queryParams['ano'] = $this->apiClient->toQueryValue($ano);
       }// query params
@@ -2362,9 +2341,6 @@ class TransparenciaApi {
         $queryParams['natureza'] = $this->apiClient->toQueryValue($natureza);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -2405,18 +2381,14 @@ class TransparenciaApi {
    *
    * Consulta dos sub-itens das contas.
    *
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return array[SubItensContasResponse]
    */
-   public function ptrLkpSubitemConta($access_token, $client_id, $offset, $limit) {
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpSubitemConta');
-      }
+   public function ptrLkpSubitemConta($client_id, $offset, $limit, $fields, $filters) {
       
       // verify the required parameter 'client_id' is set
       if ($client_id === null) {
@@ -2454,11 +2426,14 @@ class TransparenciaApi {
       }// query params
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -2496,22 +2471,18 @@ class TransparenciaApi {
    * Consulta do sub-item das contas.
    *
    * @param string $id Identificador do registro. (required)
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return SubItensContasResponse
    */
-   public function ptrLkpSubitemConta2($id, $access_token, $client_id, $offset, $limit) {
+   public function ptrLkpSubitemConta2($id, $client_id, $offset, $limit, $fields, $filters) {
       
       // verify the required parameter 'id' is set
       if ($id === null) {
         throw new \InvalidArgumentException('Missing the required parameter $id when calling ptrLkpSubitemConta2');
-      }
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpSubitemConta2');
       }
       
       // verify the required parameter 'client_id' is set
@@ -2550,11 +2521,14 @@ class TransparenciaApi {
       }// query params
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -2595,18 +2569,14 @@ class TransparenciaApi {
    *
    * Consulta das sub-funÃ§Ãµes da preifeitura.
    *
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return array[SubfuncoesResponse]
    */
-   public function ptrLkpSubfuncao($access_token, $client_id, $offset, $limit) {
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpSubfuncao');
-      }
+   public function ptrLkpSubfuncao($client_id, $offset, $limit, $fields, $filters) {
       
       // verify the required parameter 'client_id' is set
       if ($client_id === null) {
@@ -2644,11 +2614,14 @@ class TransparenciaApi {
       }// query params
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -2686,22 +2659,18 @@ class TransparenciaApi {
    * Consulta da sub-funÃ§Ã£o da preifeitura.
    *
    * @param string $id Identificador do registro. (required)
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return SubfuncoesResponse
    */
-   public function ptrLkpSubfuncao2($id, $access_token, $client_id, $offset, $limit) {
+   public function ptrLkpSubfuncao2($id, $client_id, $offset, $limit, $fields, $filters) {
       
       // verify the required parameter 'id' is set
       if ($id === null) {
         throw new \InvalidArgumentException('Missing the required parameter $id when calling ptrLkpSubfuncao2');
-      }
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpSubfuncao2');
       }
       
       // verify the required parameter 'client_id' is set
@@ -2740,11 +2709,14 @@ class TransparenciaApi {
       }// query params
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -2785,18 +2757,14 @@ class TransparenciaApi {
    *
    * Consulta dos tipos de licitaÃ§Ãµes.
    *
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return array[TipoLicitacoesResponse]
    */
-   public function ptrLkpTipoLicitacao($access_token, $client_id, $offset, $limit) {
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpTipoLicitacao');
-      }
+   public function ptrLkpTipoLicitacao($client_id, $offset, $limit, $fields, $filters) {
       
       // verify the required parameter 'client_id' is set
       if ($client_id === null) {
@@ -2834,11 +2802,14 @@ class TransparenciaApi {
       }// query params
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -2876,22 +2847,18 @@ class TransparenciaApi {
    * Consulta do tipo de licitaÃ§Ã£o.
    *
    * @param string $id Identificador do registro. (required)
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return TipoLicitacoesResponse
    */
-   public function ptrLkpTipoLicitacao2($id, $access_token, $client_id, $offset, $limit) {
+   public function ptrLkpTipoLicitacao2($id, $client_id, $offset, $limit, $fields, $filters) {
       
       // verify the required parameter 'id' is set
       if ($id === null) {
         throw new \InvalidArgumentException('Missing the required parameter $id when calling ptrLkpTipoLicitacao2');
-      }
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpTipoLicitacao2');
       }
       
       // verify the required parameter 'client_id' is set
@@ -2930,11 +2897,14 @@ class TransparenciaApi {
       }// query params
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -2975,18 +2945,14 @@ class TransparenciaApi {
    *
    * Consulta das unidades da preifeitura.
    *
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return array[UnidadesResponse]
    */
-   public function ptrLkpUnidadeOrcamentaria($access_token, $client_id, $offset, $limit) {
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpUnidadeOrcamentaria');
-      }
+   public function ptrLkpUnidadeOrcamentaria($client_id, $offset, $limit, $fields, $filters) {
       
       // verify the required parameter 'client_id' is set
       if ($client_id === null) {
@@ -3024,11 +2990,14 @@ class TransparenciaApi {
       }// query params
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -3066,22 +3035,18 @@ class TransparenciaApi {
    * Consulta da unidade da preifeitura.
    *
    * @param string $id Identificador do registro. (required)
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return UnidadesResponse
    */
-   public function ptrLkpUnidadeOrcamentaria2($id, $access_token, $client_id, $offset, $limit) {
+   public function ptrLkpUnidadeOrcamentaria2($id, $client_id, $offset, $limit, $fields, $filters) {
       
       // verify the required parameter 'id' is set
       if ($id === null) {
         throw new \InvalidArgumentException('Missing the required parameter $id when calling ptrLkpUnidadeOrcamentaria2');
-      }
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpUnidadeOrcamentaria2');
       }
       
       // verify the required parameter 'client_id' is set
@@ -3120,11 +3085,14 @@ class TransparenciaApi {
       }// query params
       if($limit !== null) {
         $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -3165,19 +3133,15 @@ class TransparenciaApi {
    *
    * Consulta de contas das unidades gestoras da prefeitura.
    *
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
    * @param string $expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return array[UnidadeGestoraResponse]
    */
-   public function ptrLkpUnidadeGestora($access_token, $client_id, $offset, $limit, $expand) {
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpUnidadeGestora');
-      }
+   public function ptrLkpUnidadeGestora($client_id, $offset, $limit, $expand, $fields, $filters) {
       
       // verify the required parameter 'client_id' is set
       if ($client_id === null) {
@@ -3218,11 +3182,14 @@ class TransparenciaApi {
       }// query params
       if($expand !== null) {
         $queryParams['expand'] = $this->apiClient->toQueryValue($expand);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -3260,23 +3227,19 @@ class TransparenciaApi {
    * Consulta de conta da unidade gestora da prefeitura.
    *
    * @param string $id Identificador do registro. (required)
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
    * @param string $expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return UnidadeGestoraResponse
    */
-   public function ptrLkpUnidadeGestora2($id, $access_token, $client_id, $offset, $limit, $expand) {
+   public function ptrLkpUnidadeGestora2($id, $client_id, $offset, $limit, $expand, $fields, $filters) {
       
       // verify the required parameter 'id' is set
       if ($id === null) {
         throw new \InvalidArgumentException('Missing the required parameter $id when calling ptrLkpUnidadeGestora2');
-      }
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling ptrLkpUnidadeGestora2');
       }
       
       // verify the required parameter 'client_id' is set
@@ -3318,11 +3281,14 @@ class TransparenciaApi {
       }// query params
       if($expand !== null) {
         $queryParams['expand'] = $this->apiClient->toQueryValue($expand);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }

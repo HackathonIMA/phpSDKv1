@@ -7,18 +7,21 @@ use \ArrayAccess;
 
 class EmpenhoResponse implements ArrayAccess {
   static $swaggerTypes = array(
+      'links' => 'array[LinksModel]',
       'id' => 'string',
       'codigo_funcao' => 'int',
       'processo' => 'string'
   );
 
   static $attributeMap = array(
+      'links' => 'links',
       'id' => 'ID',
       'codigo_funcao' => 'codigoFuncao',
       'processo' => 'processo'
   );
 
   
+  public $links; /* array[LinksModel] */
   /**
   * Identificador do registro.
   */
@@ -33,6 +36,7 @@ class EmpenhoResponse implements ArrayAccess {
   public $processo; /* string */
 
   public function __construct(array $data = null) {
+    $this->links = $data["links"];
     $this->id = $data["id"];
     $this->codigo_funcao = $data["codigo_funcao"];
     $this->processo = $data["processo"];

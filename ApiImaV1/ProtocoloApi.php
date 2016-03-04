@@ -39,7 +39,6 @@ class ProtocoloApi {
    *
    * Dados sobre protocolo
    *
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
@@ -47,14 +46,11 @@ class ProtocoloApi {
    * @param int $codigo_bairro Filtra resultados por cÃ³digo do bairro. (required)
    * @param string $sigla_expediente Filtra resultados pelo cÃ³digo da secretaria expediente. (required)
    * @param int $ano_processo Filtra resultados pelo ano em que foram lanÃ§ados. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return array[ProtocoloResponse]
    */
-   public function protocoloGet($access_token, $client_id, $offset, $limit, $nome_regiao, $codigo_bairro, $sigla_expediente, $ano_processo) {
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling protocoloGet');
-      }
+   public function protocoloGet($client_id, $offset, $limit, $nome_regiao, $codigo_bairro, $sigla_expediente, $ano_processo, $fields, $filters) {
       
       // verify the required parameter 'client_id' is set
       if ($client_id === null) {
@@ -104,11 +100,14 @@ class ProtocoloApi {
       }// query params
       if($ano_processo !== null) {
         $queryParams['anoProcesso'] = $this->apiClient->toQueryValue($ano_processo);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -145,17 +144,13 @@ class ProtocoloApi {
    *
    * Dados sobre um protocolo especifico.
    *
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param int $id Identificador do protocolo. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return ProtocoloResponse
    */
-   public function protocoloIdGet($access_token, $client_id, $id) {
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling protocoloIdGet');
-      }
+   public function protocoloIdGet($client_id, $id, $fields, $filters) {
       
       // verify the required parameter 'client_id' is set
       if ($client_id === null) {
@@ -182,11 +177,14 @@ class ProtocoloApi {
       }
       $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
 
-      
+      // query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
+      }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }

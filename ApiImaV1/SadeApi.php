@@ -39,7 +39,6 @@ class SadeApi {
    *
    * Dados sobre sÃ¡ude
    *
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param string $offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0). (required)
    * @param string $limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta. (required)
@@ -48,14 +47,11 @@ class SadeApi {
    * @param int $codigo_procedimento_sus Filtra resultados por cÃ³digo de procedimento. (required)
    * @param int $codigo_atividade_profissional Filtra resultados pelo cÃ³digo do profissional. (required)
    * @param string $distrito_atendimento Filtra resultados por distrito de atendimento. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return array[SaudeResponse]
    */
-   public function saudeGet($access_token, $client_id, $offset, $limit, $uf, $municipio, $codigo_procedimento_sus, $codigo_atividade_profissional, $distrito_atendimento) {
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling saudeGet');
-      }
+   public function saudeGet($client_id, $offset, $limit, $uf, $municipio, $codigo_procedimento_sus, $codigo_atividade_profissional, $distrito_atendimento, $fields, $filters) {
       
       // verify the required parameter 'client_id' is set
       if ($client_id === null) {
@@ -108,11 +104,14 @@ class SadeApi {
       }// query params
       if($distrito_atendimento !== null) {
         $queryParams['distritoAtendimento'] = $this->apiClient->toQueryValue($distrito_atendimento);
+      }// query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
       }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
@@ -149,17 +148,13 @@ class SadeApi {
    *
    * Retorna um dado hospitalar especÃ­fico.
    *
-   * @param string $access_token Access Token com as permissÃµes de acesso. (required)
    * @param string $client_id Token disponibilizado na criaÃ§Ã£o da APP. (required)
    * @param int $id Identificador do protocolo. (required)
+   * @param array[string] $fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos (required)
+   * @param array[string] $filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123 (required)
    * @return SaudeResponse
    */
-   public function saudeIdGet($access_token, $client_id, $id) {
-      
-      // verify the required parameter 'access_token' is set
-      if ($access_token === null) {
-        throw new \InvalidArgumentException('Missing the required parameter $access_token when calling saudeIdGet');
-      }
+   public function saudeIdGet($client_id, $id, $fields, $filters) {
       
       // verify the required parameter 'client_id' is set
       if ($client_id === null) {
@@ -186,11 +181,14 @@ class SadeApi {
       }
       $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
 
-      
+      // query params
+      if($fields !== null) {
+        $queryParams['fields'] = $this->apiClient->toQueryValue($fields);
+      }// query params
+      if($filters !== null) {
+        $queryParams['filters'] = $this->apiClient->toQueryValue($filters);
+      }
       // header params
-      if($access_token !== null) {
-        $headerParams['access-token'] = $this->apiClient->toHeaderValue($access_token);
-      }// header params
       if($client_id !== null) {
         $headerParams['client_id'] = $this->apiClient->toHeaderValue($client_id);
       }
